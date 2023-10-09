@@ -34,5 +34,5 @@ class BookListView(generic.ListView):
     model = Book
 
     context_object_name = 'book_list'   # your own name for the list as a template variable
-    queryset = Book.objects.filter[:5] # Get 5 books containing the title war
+    queryset = Book.objects.all()[:5] # Get 5 books containing the title war
 
