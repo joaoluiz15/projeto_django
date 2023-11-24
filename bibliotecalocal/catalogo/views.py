@@ -32,9 +32,20 @@ from django.views import generic
 
 class BookListView(generic.ListView):
     model = Book
-
     context_object_name = 'book_list'   # your own name for the list as a template variable
-    queryset = Book.objects.all()[:5] # Get 5 books containing the title war
+    queryset = Book.objects.all() # Get 5 books containing the title war
+    paginate_by = 2
 
 class BookDetailView(generic.DetailView):
     model = Book
+   # book = Book.objects().all().order_by('name').values()
+
+class AuthorListView(generic.ListView):
+    model = Author
+    context_object_name = 'author_list'
+    queryset = Book.objects.all()
+    paginate_by = 3
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+    # author = Author.objects().all().order_by('name').values()
